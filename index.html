@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Days Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Transport Days Checker</h1>
+
+    <label for="serviceType">Select Service Type:</label>
+    <select id="serviceType">
+        <option value="b2b">Business-to-Business (B2B)</option>
+        <option value="b2c">Business-to-Consumer (B2C)</option>
+    </select>
+
+    <input type="text" id="sourcePincode" placeholder="Enter source pin code" oninput="showSourceDetails()" />
+
+
+    <div id="sourceDetails">
+        <table>
+            <thead>
+            <tr>
+                <th>City</th>
+                <th>State</th>
+                <th>Availability</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>❌</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <input type="text" id="destinationPincode" placeholder="Enter destination pin code" oninput="showDestinationDetails()" />
+    <div id="destinationDetails">
+        <table>
+            <thead>
+            <tr>
+                <th>City</th>
+                <th>State</th>
+                <th>Availability</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>-</td>
+                <td>-</td>
+                <td>❌</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <label for="pickupDate">Select Pickup Date:</label>
+    <input type="date" id="pickupDate" onchange="calculateTransportDays()" />
+
+    <div class="result" id="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
