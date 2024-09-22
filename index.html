@@ -16,8 +16,8 @@
         <option value="b2c">Business-to-Consumer (B2C)</option>
     </select>
 
-    <input type="text" id="sourcePincode" placeholder="Enter source pin code" oninput="showSourceDetails()" />
-
+    <input type="text" id="sourcePincode" placeholder="Enter source pin code" maxlength="6"
+           oninput="validateInput(this); showSourceDetails()" />
 
     <div id="sourceDetails">
         <table>
@@ -38,7 +38,9 @@
         </table>
     </div>
 
-    <input type="text" id="destinationPincode" placeholder="Enter destination pin code" oninput="showDestinationDetails()" />
+    <input type="text" id="destinationPincode" placeholder="Enter destination pin code" maxlength="6"
+           oninput="validateInput(this); showDestinationDetails()" />
+
     <div id="destinationDetails">
         <table>
             <thead>
@@ -65,5 +67,17 @@
 </div>
 
 <script src="script.js"></script>
+
+<script>
+    function validateInput(input) {
+        // Remove any non-digit characters
+        input.value = input.value.replace(/[^0-9]/g, '');
+
+        // Optionally, limit the length to 6
+        if (input.value.length > 6) {
+            input.value = input.value.slice(0, 6);
+        }
+    }
+</script>
 </body>
 </html>
