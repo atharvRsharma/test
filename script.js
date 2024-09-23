@@ -13,7 +13,6 @@ const transportData = {
     "546699": { "city": "Jorhat", "state": "Assam", "b2b": 7, "b2c": 8, "available": false }
 };
 
-
 function showSourceDetails() {
     const pincode = document.getElementById('sourcePincode').value;
     const details = document.getElementById('sourceDetails').getElementsByTagName('tbody')[0];
@@ -86,7 +85,7 @@ function checkTransportDays() {
         arrivalDate.setDate(arrivalDate.getDate() + transportDays); // Add transport days
 
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        resultText = `Transport from ${source.city}, ${source.state} to ${destination.city}, ${destination.state} will take ${transportDays} days. It will arrive on ${arrivalDate.toLocaleDateString(undefined, options)}.`;
+        resultText = `Transport from ${source.city}, ${source.state} to ${destination.city}, ${destination.state} will take ${transportDays} day(s). It will arrive on ${arrivalDate.toLocaleDateString(undefined, options)}.`;
     }
 
     document.getElementById('result').innerText = resultText;
