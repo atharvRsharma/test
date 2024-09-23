@@ -11,7 +11,7 @@
     <h1>Transport Days Checker</h1>
 
     <label for="serviceType">Select Service Type:</label>
-    <select id="serviceType">
+    <select id="serviceType" onchange="checkTransportDays()">
         <option value="b2b">Business-to-Business (B2B)</option>
         <option value="b2c">Business-to-Consumer (B2C)</option>
     </select>
@@ -61,9 +61,10 @@
     </div>
 
     <label for="pickupDate">Select Pickup Date:</label>
-    <input type="date" id="pickupDate" onchange="calculateTransportDays()" />
+    <input type="date" id="pickupDate" onchange="checkTransportDays()" />
 
     <div class="result" id="result"></div>
+    <div id="estimatedDelivery" class="estimated-delivery"></div>
 </div>
 
 <script src="script.js"></script>
@@ -73,7 +74,7 @@
         // Remove any non-digit characters
         input.value = input.value.replace(/[^0-9]/g, '');
 
-        // Optionally, limit the length to 6
+        // Limit the length to 6
         if (input.value.length > 6) {
             input.value = input.value.slice(0, 6);
         }
